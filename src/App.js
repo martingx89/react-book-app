@@ -15,7 +15,7 @@ const App = () => {
   return (
     <div>
       <h1>Books App</h1>
-      <BooksList books={books}></BooksList>
+      <BooksList books={books} removeBook={removeBook}></BooksList>
       <BooksForm></BooksForm>
     </div>
   );
