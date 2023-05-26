@@ -1,5 +1,13 @@
-const BooksList = () => {
-  return <h2>BooksList</h2>;
+const BooksList = (props) => {
+  return (
+    <ul>
+      {props.books.map((book) => (
+        <li key={book.id}>
+          {book.title} by {book.author}
+        </li>
+      ))}
+    </ul>
+  );
 };
 
 export default BooksList;
