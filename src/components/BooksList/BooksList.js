@@ -1,7 +1,7 @@
-const BooksList = (props) => {
+const BooksList = ({ books }) => {
   return (
     <ul>
-      {props.books.map((book) => (
+      {books.map((book) => (
         <li key={book.id}>
           {book.title} by {book.author}
         </li>
