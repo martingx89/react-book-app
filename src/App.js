@@ -2,6 +2,7 @@ import { useState } from 'react';
 import BooksForm from './components/BooksForm/BooksForm';
 import BooksList from './components/BooksList/BooksList';
 import shortid from 'shortid';
+import PropTypes from 'prop-types';
 
 const App = () => {
   const [books, setBooks] = useState([
@@ -24,6 +25,11 @@ const App = () => {
       <BooksForm addBook={addBook}></BooksForm>
     </div>
   );
+};
+
+BooksList.PropTypes = {
+  books: PropTypes.array.isRequired,
+  setBooks: PropTypes.func.isRequired,
 };
 
 export default App;
