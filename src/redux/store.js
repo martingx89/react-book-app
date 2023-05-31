@@ -7,7 +7,7 @@ const reducer = (state, action) => {
       return { ...state, books: state.books.filter((book) => book.id !== action.payload) };
 
     case 'ADD_BOOK':
-      return { ...state, books: [...state.books, { ...action.payload, id: shortid }] };
+      return { ...state, books: [...state.books, { ...action.payload, id: shortid() }] };
 
     default:
       return state;
