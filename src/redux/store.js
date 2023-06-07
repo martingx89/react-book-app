@@ -1,19 +1,10 @@
-import { createStore } from 'redux';
-import shortid from 'shortid';
+import { createStore, combineReducers } from 'redux';
+import booksReducer from './booksRedux';
 import initialState from './initialState';
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'REMOVE_BOOK':
-      return { ...state, books: state.books.filter((book) => book.id !== action.payload) };
-
-    case 'ADD_BOOK':
-      return { ...state, books: [...state.books, { ...action.payload, id: shortid() }] };
-
-    default:
-      return state;
-  }
-};
+const reducer = combineReducers({
+  books: booksReducer,
+});
 
 const store = createStore(
   reducer,
