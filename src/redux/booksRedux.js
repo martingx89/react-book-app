@@ -15,6 +15,15 @@ export const removeSelectedBook = (payload) => ({ type: REMOVE_BOOK, payload });
 export const addNewBook = (payload) => ({ type: ADD_BOOK, payload });
 export const updateBooks = (payload) => ({ type: UPDATE_BOOKS, payload });
 
+export const fetchBooks = () => {
+  return (dispatch) => {
+    fetch('http://localhost:3131/books')
+      .then((res) => res.json())
+      .then((res) => console.log(res))
+      .then((books) => dispatch(updateBooks(books)));
+  };
+};
+
 const booksRedux = (statePart = [], action) => {
   switch (action.type) {
     case REMOVE_BOOK:
