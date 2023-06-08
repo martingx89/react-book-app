@@ -13,7 +13,7 @@ const ADD_BOOK = createActionName('ADD_BOOK');
 export const removeSelectedBook = (payload) => ({ type: REMOVE_BOOK, payload });
 export const addNewBook = (payload) => ({ type: ADD_BOOK, payload });
 
-const booksReducer = (statePart = [], action) => {
+const booksRedux = (statePart = [], action) => {
   switch (action.type) {
     case REMOVE_BOOK:
       return statePart.filter((book) => book.id !== action.payload);
@@ -24,4 +24,4 @@ const booksReducer = (statePart = [], action) => {
   }
 };
 
-export default booksReducer;
+export default booksRedux;
