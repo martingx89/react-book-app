@@ -8,6 +8,10 @@ const createActionName = (name) => `app/books/${name}`;
 const REMOVE_BOOK = createActionName('REMOVE_BOOK');
 const ADD_BOOK = createActionName('ADD_BOOK');
 
+// action creators
+
+export const removeSelectedBook = (payload) => ({ type: REMOVE_BOOK, payload });
+
 const booksReducer = (statePart = [], action) => {
   switch (action.type) {
     case REMOVE_BOOK:
