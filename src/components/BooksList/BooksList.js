@@ -6,7 +6,6 @@ import { removeSelectedBook } from '../../redux/booksRedux';
 const BooksList = () => {
   const { id } = useParams();
   const booksData = useSelector((state) => getAllBooks(state, id));
-  console.log(booksData);
 
   const dispatch = useDispatch();
 

@@ -11,6 +11,7 @@ const ADD_BOOK = createActionName('ADD_BOOK');
 // action creators
 
 export const removeSelectedBook = (payload) => ({ type: REMOVE_BOOK, payload });
+export const addNewBook = (payload) => ({ type: ADD_BOOK, payload });
 
 const booksReducer = (statePart = [], action) => {
   switch (action.type) {
