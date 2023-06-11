@@ -7,11 +7,21 @@ export const getAllBooks = (state) => state.books;
 const createActionName = (name) => `app/books/${name}`;
 const REMOVE_BOOK = createActionName('REMOVE_BOOK');
 const ADD_BOOK = createActionName('ADD_BOOK');
+const UPDATE_BOOKS = createActionName('UPDATE_BOOKS');
 
 // action creators
 
 export const removeSelectedBook = (payload) => ({ type: REMOVE_BOOK, payload });
 export const addNewBook = (payload) => ({ type: ADD_BOOK, payload });
+export const updateBooks = (payload) => ({ type: UPDATE_BOOKS, payload });
+
+export const fetchBooks = () => {
+  return (dispatch) => {
+    fetch('http://localhost:3131/books')
+      .then((res) => res.json())
+      .then((books) => dispatch(updateBooks(books)));
+  };
+};
 
 const booksRedux = (statePart = [], action) => {
   switch (action.type) {
@@ -19,6 +29,8 @@ const booksRedux = (statePart = [], action) => {
       return statePart.filter((book) => book.id !== action.payload);
     case ADD_BOOK:
       return [...statePart, { ...action.payload, id: shortid() }];
+    case UPDATE_BOOKS:
+      return [...action.payload];
     default:
       return statePart;
   }
