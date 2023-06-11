@@ -30,7 +30,6 @@ const booksRedux = (statePart = [], action) => {
     case ADD_BOOK:
       return [...statePart, { ...action.payload, id: shortid() }];
     case UPDATE_BOOKS:
-      debugger;
       return [...action.payload];
     default:
       return statePart;
