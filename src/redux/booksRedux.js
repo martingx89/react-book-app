@@ -19,7 +19,6 @@ export const fetchBooks = () => {
   return (dispatch) => {
     fetch('http://localhost:3131/books')
       .then((res) => res.json())
-      .then((res) => console.log(res))
       .then((books) => dispatch(updateBooks(books)));
   };
 };
@@ -31,6 +30,7 @@ const booksRedux = (statePart = [], action) => {
     case ADD_BOOK:
       return [...statePart, { ...action.payload, id: shortid() }];
     case UPDATE_BOOKS:
+      debugger;
       return [...action.payload];
     default:
       return statePart;

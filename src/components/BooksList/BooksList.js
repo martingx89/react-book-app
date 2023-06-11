@@ -7,10 +7,12 @@ const BooksList = () => {
   const { id } = useParams();
   const booksData = useSelector((state) => getAllBooks(state, id));
 
+  console.log(booksData);
+
   const dispatch = useDispatch();
 
-  const removeBook = (bookId) => {
-    dispatch(removeSelectedBook(bookId));
+  const removeBook = (id) => {
+    dispatch(removeSelectedBook(id));
   };
 
   return (
